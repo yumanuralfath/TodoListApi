@@ -15,29 +15,35 @@ module.exports = (sequelize, DataTypes) => {
     },
     createdAt: {
       type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+      field: 'created_at'
     },
     updatedAt: {
       type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+      field: 'updated_at'
     },
     userId: {
       type: DataTypes.INTEGER,
+      field: 'user_id',
       references: {
         model: 'Users',
         key: 'id',
       },
     },
+  }, {
+    tableName: 'TodoLists',
+    timestamps: true,
   });
+
   TodoList.associate = function (models) {
     TodoList.belongsTo(models.User, {
-      foreignKey: 'userId',
+      foreignKey: 'user_id',
       as: 'user',
     });
     TodoList.hasMany(models.Task, {
-      foreignKey: 'todoListId',
+      foreignKey: 'todolist_id',
       as: 'tasks',
     });
   };
+
   return TodoList;
 };

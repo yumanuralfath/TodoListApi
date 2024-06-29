@@ -1,5 +1,4 @@
-const TodoList = require('../models/TodoListModel');
-const Task = require('../models/TaskModel');
+const {TodoList, Task} = require('../models');
 
 exports.createTodoList = async (req, res) => {
   try {
@@ -29,7 +28,7 @@ exports.updateTodoList = async (req, res) => {
   try {
     const todoList = await TodoList.findByPk(req.params.id);
     if (todoList) {
-      await todoList.update(req.body);  
+      await todoList.update(req.body);
       res.json(todoList);
     } else {
       res.status(404).json({ error: 'TodoList not found' });

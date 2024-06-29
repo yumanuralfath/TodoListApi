@@ -9,14 +9,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+  }, {
+    tableName: 'Tags',
+    timestamps: false,
   });
+
   Tag.associate = function (models) {
     Tag.belongsToMany(models.Task, {
       through: 'Task_Tag',
-      foreignKey: 'tagId',
-      otherKey: 'taskId',
+      foreignKey: 'tag_id',
+      otherKey: 'task_id',
       as: 'tasks',
     });
   };
+
   return Tag;
 };

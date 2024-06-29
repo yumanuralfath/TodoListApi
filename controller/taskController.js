@@ -1,5 +1,4 @@
-const Task = require('../models/TaskModel');
-const Tag = require('../models/TagModel');
+const { Task, Tag} = require('../models');
 
 exports.createTask = async (req, res) => {
   try {
