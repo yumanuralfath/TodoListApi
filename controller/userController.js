@@ -1,5 +1,5 @@
-const { User } = require('../models/UsersModel');
-const { TodoList } = require('../models/TodoListModel');
+const User = require('../models/UsersModel');
+const TodoList = require('../models/TodoListModel');
 
 exports.createUser = async (req, res) => {
   try {

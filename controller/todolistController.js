@@ -1,4 +1,5 @@
-const { TodoList, Task } = require('../models');
+const TodoList = require('../models/TodoListModel');
+const Task = require('../models/TaskModel');
 
 exports.createTodoList = async (req, res) => {
   try {
