@@ -29,5 +29,6 @@ router.post('/tags', tagController.createTag);
 router.get('/tags/:id', tagController.getTag);
 router.put('/tags/:id', tagController.updateTag);
 router.delete('/tags/:id', tagController.deleteTag);
+router.post('/tasks/:taskId/tags/:tagId', tagController.addTagToTask);
 
 module.exports = router;

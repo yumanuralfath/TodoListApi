@@ -10,7 +10,7 @@ app.use('/api', routes);
 
 const PORT = process.env.PORT || 3000;
 
-db.sequelize.sync({ alter: true }).then(() => { // Use alter to ensure changes are reflected
+db.sequelize.sync({ alter: true }).then(() => { 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
